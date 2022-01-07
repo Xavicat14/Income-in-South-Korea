@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.preprocessing import scale
 from sklearn.preprocessing import StandardScaler
 
-df= pd.read_csv("C:/Users/xavie/OneDrive/Desktop/Korea Income and Welfare.csv")
+df= pd.read_csv("https://raw.githubusercontent.com/Xavicat14/Income-in-South-Korea/main/Korea%20Income%20and%20Welfare.csv")
 
 df=df.drop(df[df.income <0].index)
 
