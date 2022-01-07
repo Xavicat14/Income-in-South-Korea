@@ -1,18 +1,8 @@
-from plotly.offline import init_notebook_mode, iplot_mpl, download_plotlyjs, plot, iplot
-
 import numpy as np
 import plotly_express as px
-import plotly.figure_factory as ff
-import matplotlib.pyplot as plt
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import warnings
 import pandas as pd
 from sklearn.preprocessing import scale
-from pandas import DataFrame
 from sklearn.preprocessing import StandardScaler
-
-plt.rcParams['figure.dpi'] = 300
 
 df= pd.read_csv("C:/Users/xavie/OneDrive/Desktop/Korea Income and Welfare.csv")
 
