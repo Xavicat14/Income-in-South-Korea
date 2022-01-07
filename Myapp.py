@@ -1,7 +1,6 @@
 import numpy as np
 import plotly_express as px
 import pandas as pd
-from sklearn.preprocessing import scale
 from sklearn.preprocessing import StandardScaler
 
 df= pd.read_csv("https://raw.githubusercontent.com/Xavicat14/Income-in-South-Korea/main/Korea%20Income%20and%20Welfare.csv")
