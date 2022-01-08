@@ -2,6 +2,7 @@ import numpy as np
 import plotly_express as px
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
+import streamlit as st
 
 df= pd.read_csv("https://raw.githubusercontent.com/Xavicat14/Income-in-South-Korea/main/Korea%20Income%20and%20Welfare.csv")
 
@@ -34,10 +35,9 @@ df['log_income'] = np.log(df['income'])
 #eliminamos algunos valores con valores inf, -inf
 df=df[~df.isin([np.nan, np.inf, -np.inf]).any(1)]
 
+#data preparation
 scale= StandardScaler()
-
 df['standarized income']=scale.fit_transform(df[['income']]) 
-
 data=df.copy()
 df1=df.copy()
 df1_males = df[df['gender']=='male']
@@ -45,7 +45,6 @@ df1_females = df[df['gender']=='female']
 df1_males=df1_males.groupby(['year']).mean()
 df1_males['year']=df1_males.index
 df1_females=df1_females.groupby(['year']).mean()
-
 df1_females['year']=df1_females.index
 df2=pd.concat([df1_females, df1_males])
 df1_males['income females']=df1_females['income']
@@ -54,8 +53,6 @@ df1_males.year=df1_males.year.astype(int)
 df=df[df['year']==2018]
 df.reset_index(inplace=True)
 df1_males['ratio females']=(df1_males['income females']/df1_males['income males']).round(2)
-import streamlit as st
-
 
 
 st.write("""
