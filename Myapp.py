@@ -174,8 +174,26 @@ st.write(fig4)
 
 
 #Fig5
+df['age']=df['year']-df['year_born']
+ax=df.groupby(['age']).mean()
+ax['age']=ax.index
+fig5 = px.bar(ax,x = 'age', y = 'income',range_y=[0,10000],range_x=[18,90]
+            ,height=400,template='ggplot2')
 
-fig5=px.box(df,x="log_income",
+fig5.update_layout(paper_bgcolor='rgb(243, 243, 243)',plot_bgcolor='rgb(243, 243, 243)'
+,title_text='Average income in million KRW males and females (South Korea 2005 - 2018)',
+    font=dict(
+        family="Century, monospace",
+        color="black"
+    ))
+
+fig5.show()
+st.write(fig5)
+
+
+#Fig6
+
+fig6=px.box(df,x="log_income",
              title="Log inc. in million KRW by region (South Korea, 2018)",template='ggplot2',color='region',
  height=400,
              color_discrete_sequence=px.colors.qualitative.Pastel).update_traces(dict(marker_line_width=1,
@@ -186,12 +204,12 @@ fig5=px.box(df,x="log_income",
         family="Century, monospace",
         color="black"))
 
-fig5.show()
-st.write(fig5)
+fig6.show()
+st.write(fig6)
 
-#Fig6
+#Fig7
 
-fig6=px.box(df,x="log_income",
+fig7=px.box(df,x="log_income",
              title="Log inc. in mil. KRW religious & non religious (South Korea, 2018)",template='ggplot2',color='religion',
         height=400,
              color_discrete_sequence=px.colors.qualitative.Safe).update_traces(dict(marker_line_width=1,
@@ -202,8 +220,8 @@ fig6=px.box(df,x="log_income",
         family="Century, monospace",
         color="black"))
 
-fig6.show()
-st.write(fig6)
+fig7.show()
+st.write(fig7)
 
 
 st.write(data.head())
@@ -216,9 +234,3 @@ st.write("""
 https://www.kaggle.com/hongsean/korea-income-and-welfare/code
 
  """)
-
-
-
-
-
-
