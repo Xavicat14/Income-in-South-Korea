@@ -181,7 +181,7 @@ fig5 = px.bar(ax,x = 'age', y = 'income',range_y=[0,10000],range_x=[18,90]
             ,height=400,template='ggplot2')
 
 fig5.update_layout(paper_bgcolor='rgb(243, 243, 243)',plot_bgcolor='rgb(243, 243, 243)'
-,title_text='Average income in million KRW by age (South Korea 2005 - 2018)',
+,title_text='Average income in million KRW by age (South Korea, 2018)',
     font=dict(
         family="Century, monospace",
         color="black"
